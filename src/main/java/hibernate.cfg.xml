@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory name="">
+  <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/fastmarketbd</property>
+  <property name="hibernate.connection.username">root</property>
+  <mapping class="pe.edu.udaff.entities.Categoria"/>
+  <mapping class="pe.edu.udaff.entities.Marca"/>
+  <mapping class="pe.edu.udaff.entities.Partner"/>
+  <mapping class="pe.edu.udaff.entities.Producto"/>
+ </session-factory>
+</hibernate-configuration>

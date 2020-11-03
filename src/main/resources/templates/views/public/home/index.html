@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+<div th:replace="views/public/layout/layout :: head"></div>
+
+</head>
+
+<body>
+
+	<!-- *** TOPBAR Y NAVBAR ***
+ _________________________________________________________ -->
+
+	<div th:replace="views/public/layout/layout :: header"></div>
+
+	<!-- *** TOPBAR Y NAVBAR END *** -->
+
+
+
+	<div id="all">
+		<!-- *** CONTENT ***
+ _________________________________________________________ -->
+
+
+
+		<section id="home-section" class="hero">
+			<div class="home-slider owl-carousel">
+				<div class="slider-item"
+					th:style="'background-image: url('+@{/public/images/plantilla_post_imagen_01.png}+');'">
+					<div class="overlay"></div>
+					<div class="container">
+						<div
+							class="row slider-text justify-content-center align-items-center"
+							data-scrollax-parent="true">
+							<div class="col-md-12 ftco-animate text-center">
+								<h1 class="mb-2">vegetales frescos &amp; Frutas &amp; Productos de primera necesidad</h1>
+								<h2 class="subheading mb-4">Delivery de Verdutas
+									&amp; Frutas</h2>
+								<p>
+									<a href="#" class="btn btn-primary">Ver detalles</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="slider-item"
+					th:style="'background-image: url('+@{/public/images/bg_2.jpg}+');'">
+					<div class="overlay"></div>
+					<div class="container">
+						<div
+							class="row slider-text justify-content-center align-items-center"
+							data-scrollax-parent="true">
+							<div class="col-sm-12 ftco-animate text-center">
+								<h1 class="mb-2">100% frescos &amp; verduras frescas</h1>
+								<h2 class="subheading mb-4">Delivery de Verdutas
+									&amp; frutas</h2>
+								<p>
+									<a href="#" class="btn btn-primary">ver detalles</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- 		aqui empieza -->
+
+<!-- 		<section id="home-section" class="hero"> -->
+<!-- 			<div class="home-slider owl-carousel owl-loaded owl-drag"> -->
+<!-- 				<div class="owl-stage-outer"> -->
+<!-- 					<div class="owl-stage" -->
+<!-- 						style="transform: translate3d(-1654px, 0px, 0px); transition: all 0s ease 0s; width: 4962px;"> -->
+<!-- 						<div class="owl-item cloned" style="width: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_1.jpg}+');'"> -->
+
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-md-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="owl-item cloned animated owl-animated-out fadeOut" -->
+<!-- 							style="width: 827px; left: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_2.jpg}+');'"> -->
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-sm-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">100% Fresh &amp; Organic Foods</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="owl-item animated owl-animated-in fadeIn active" -->
+<!-- 							style="width: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_1.jpg}+');'"> -->
+
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-md-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="owl-item" style="width: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_2.jpg}+');'"> -->
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-sm-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">100% Fresh &amp; Organic Foods</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="owl-item cloned" style="width: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_1.jpg}+');'"> -->
+
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-md-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						<div class="owl-item cloned" style="width: 827px;"> -->
+<!-- 							<div class="slider-item" -->
+<!-- 								th:style="'background-image: url('+@{/public/images/bg_2.jpg}+');'"> -->
+
+<!-- 								<div class="overlay"></div> -->
+<!-- 								<div class="container"> -->
+<!-- 									<div -->
+<!-- 										class="row slider-text justify-content-center align-items-center" -->
+<!-- 										data-scrollax-parent="true"> -->
+<!-- 										<div -->
+<!-- 											class="col-sm-12 ftco-animate text-center fadeInUp ftco-animated"> -->
+<!-- 											<h1 class="mb-2">100% Fresh &amp; Organic Foods</h1> -->
+<!-- 											<h2 class="subheading mb-4">We deliver organic -->
+<!-- 												vegetables &amp; fruits</h2> -->
+<!-- 											<p> -->
+<!-- 												<a href="#" class="btn btn-primary">View Details</a> -->
+<!-- 											</p> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="owl-nav disabled"> -->
+<!-- 					<button role="presentation" class="owl-prev"> -->
+<!-- 						<span class="ion-md-arrow-back"></span> -->
+<!-- 					</button> -->
+<!-- 					<button role="presentation" class="owl-next"> -->
+<!-- 						<span class="ion-chevron-right"></span> -->
+<!-- 					</button> -->
+<!-- 				</div> -->
+<!-- 				<div class="owl-dots"> -->
+<!-- 					<button class="owl-dot active"> -->
+<!-- 						<span></span> -->
+<!-- 					</button> -->
+<!-- 					<button class="owl-dot"> -->
+<!-- 						<span></span> -->
+<!-- 					</button> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</section> -->
+
+
+
+
+
+
+
+		<!-- 		aqui acabaa -->
+
+
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row no-gutters ftco-services">
+					<div
+						class="col-md-3 text-center d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+						<div class="media block-6 services mb-md-0 mb-4">
+							<div
+								class="icon bg-color-1 active d-flex justify-content-center align-items-center mb-2">
+								<span class="flaticon-shipped"></span>
+							</div>
+							<div class="media-body">
+								<h3 class="heading">envio gratis</h3>
+								<span>a partir de S/. 30</span>
+							</div>
+						</div>
+					</div>
+					<div
+						class="col-md-3 text-center d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+						<div class="media block-6 services mb-md-0 mb-4">
+							<div
+								class="icon bg-color-2 d-flex justify-content-center align-items-center mb-2">
+								<span class="flaticon-diet"></span>
+							</div>
+							<div class="media-body">
+								<h3 class="heading">producto Fresco</h3>
+								<span>buena calidad</span>
+							</div>
+						</div>
+					</div>
+<!-- 					<div
+						class="col-md-3 text-center d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+						<div class="media block-6 services mb-md-0 mb-4">
+							<div
+								class="icon bg-color-3 d-flex justify-content-center align-items-center mb-2">
+								<span class="flaticon-award"></span>
+							</div>
+							<div class="media-body">
+								<h3 class="heading">Superior Quality</h3>
+								<span>Quality Products</span>
+							</div>
+						</div>
+					</div> -->
+<!-- 					<div
+						class="col-md-3 text-center d-flex align-self-stretch ftco-animate fadeInUp ftco-animated">
+						<div class="media block-6 services mb-md-0 mb-4">
+							<div
+								class="icon bg-color-4 d-flex justify-content-center align-items-center mb-2">
+								<span class="flaticon-customer-service"></span>
+							</div>
+							<div class="media-body">
+								<h3 class="heading">Support</h3>
+								<span>24/7 Support</span>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</section>
+		<section class="ftco-section ftco-category ftco-no-pt">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-6 order-md-last align-items-stretch d-flex">
+								<div
+									class="category-wrap-2 ftco-animate img align-self-stretch d-flex fadeInUp ftco-animated"
+									th:style="'background-image: url('+@{/public/images/category.jpg}+');'">
+									<div class="text text-center">
+										<h2>Vegetales</h2>
+										<p>verduras frescas y de calidad</p>
+										<p>
+											<a href="#" class="btn btn-primary">Compra ahora</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div
+									class="category-wrap ftco-animate img mb-4 d-flex align-items-end fadeInUp ftco-animated"
+									th:style="'background-image: url('+@{/public/images/category-1.jpg}+');'">
+									<div class="text px-3 py-1">
+										<h2 class="mb-0">
+											<a href="#">Verduras</a>
+										</h2>
+									</div>
+								</div>
+								<div
+									class="category-wrap ftco-animate img d-flex align-items-end fadeInUp ftco-animated"
+									th:style="'background-image: url('+@{/public/images/category-2.jpg}+');'">
+									<div class="text px-3 py-1">
+										<h2 class="mb-0">
+											<a href="#">Frutas</a>
+										</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div
+							class="category-wrap ftco-animate img mb-4 d-flex align-items-end fadeInUp ftco-animated"
+							th:style="'background-image: url('+@{/public/images/category-3.jpg}+');'">
+							<div class="text px-3 py-1">
+								<h2 class="mb-0">
+									<a href="#">Jugos</a>
+								</h2>
+							</div>
+						</div>
+						<div
+							class="category-wrap ftco-animate img d-flex align-items-end fadeInUp ftco-animated"
+							th:style="'background-image: url('+@{/public/images/category-4.jpg}+');'">
+							<div class="text px-3 py-1">
+								<h2 class="mb-0">
+									<a href="#">Frutos secos</a>
+								</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+					<div
+						class="col-md-12 heading-section text-center ftco-animate fadeInUp ftco-animated">
+						<span class="subheading">Productos Destacados</span>
+						<h2 class="mb-4">Nuestros Productos</h2>
+						<p>Todo a un solo click.</p>
+					</div>
+				</div>
+			</div>
+<!-- 			Inicio Productos Destacados -->
+			<div class="container">
+				<div class="row">
+<!-- 				Inicio un producto -->
+					<th:block th:each = "producto : ${featureProductos}">
+					<div class="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
+						<div class="product">
+<!-- 						Imagen -->
+							<a th:href="@{'/producto/detalle/' + ${producto.idproducto}}" class="img-prod"><img class="img-fluid"
+								th:src="@{'/public/images/'+${producto.urlimagen}}" alt="Colorlib Template">
+								<span class="status">30%</span>
+								<div class="overlay"></div> </a>
+<!-- 								Fin imagen -->
+
+							<div class="text py-3 pb-4 px-3 text-center">
+								<h3>
+									<a th:href="@{'/producto/detalle/' + ${producto.idproducto}}">
+									<span th:text = "${producto.nombre}"></span>
+									</a>
+								</h3>
+<!-- 								Precio -->
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price">
+											<span class="price-sale">S/. 
+											<span th:text = "${producto.precio}"></span>		
+											</span>
+										</p>
+									</div>
+								</div>
+<!-- 								Fin Precio -->
+
+								<div class="bottom-area d-flex px-3">
+									<div class="m-auto d-flex">
+										<a href="#"
+											class="add-to-cart d-flex justify-content-center align-items-center text-center">
+											<span><i class="ion-ios-menu"></i></span>
+										</a> <a href="#"
+											class="buy-now d-flex justify-content-center align-items-center mx-1">
+											<span><i class="ion-ios-cart"></i></span>
+										</a> <a href="#"
+											class="heart d-flex justify-content-center align-items-center ">
+											<span><i class="ion-ios-heart"></i></span>
+										</a>
+									</div>
+								</div>
+<!-- 								Fin botones -->
+							</div>
+							
+						</div>
+					</div>
+					</th:block>
+<!-- 					Fin un Producto -->
+
+<!-- 					<div class="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated"> -->
+<!-- 						<div class="product"> -->
+<!-- 							<a href="#" class="img-prod"><img class="img-fluid" -->
+<!-- 								th:src="@{/public/images/product-8.jpg}" alt="Colorlib Template"> -->
+<!-- 								<div class="overlay"></div> </a> -->
+<!-- 							<div class="text py-3 pb-4 px-3 text-center"> -->
+<!-- 								<h3> -->
+<!-- 									<a href="#">Fruit Juice</a> -->
+<!-- 								</h3> -->
+<!-- 								<div class="d-flex"> -->
+<!-- 									<div class="pricing"> -->
+<!-- 										<p class="price"> -->
+<!-- 											<span>$120.00</span> -->
+<!-- 										</p> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="bottom-area d-flex px-3"> -->
+<!-- 									<div class="m-auto d-flex"> -->
+<!-- 										<a href="#" -->
+<!-- 											class="add-to-cart d-flex justify-content-center align-items-center text-center"> -->
+<!-- 											<span><i class="ion-ios-menu"></i></span> -->
+<!-- 										</a> <a href="#" -->
+<!-- 											class="buy-now d-flex justify-content-center align-items-center mx-1"> -->
+<!-- 											<span><i class="ion-ios-cart"></i></span> -->
+<!-- 										</a> <a href="#" -->
+<!-- 											class="heart d-flex justify-content-center align-items-center "> -->
+<!-- 											<span><i class="ion-ios-heart"></i></span> -->
+<!-- 										</a> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+				</div>
+			</div>
+<!-- 			Fin productos destacados -->
+		</section>
+		<!-- <section class="ftco-section img"
+			th:style="'background-image: url('+@{/public/images/bg_3.jpg}+');'">
+			<div class="container">
+				<div class="row justify-content-end">
+					<div
+						class="col-md-6 heading-section ftco-animate deal-of-the-day ftco-animate fadeInUp ftco-animated">
+						<span class="subheading">Best Price For You</span>
+						<h2 class="mb-4">Deal of the day</h2>
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia</p>
+						<h3>
+							<a href="#">Spinach</a>
+						</h3>
+						<span class="price">$10 <a href="#">now $5 only</a></span>
+						<div id="timer" class="d-flex mt-5">
+							<div class="time" id="days">
+								-142<span>Days</span>
+							</div>
+							<div class="time pl-3" id="hours">
+								07<span>Hours</span>
+							</div>
+							<div class="time pl-3" id="minutes">
+								13<span>Minutes</span>
+							</div>
+							<div class="time pl-3" id="seconds">
+								54<span>Seconds</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+<!-- 		<section class="ftco-section testimony-section">
+			<div class="container">
+				<div class="row justify-content-center mb-5 pb-3">
+					<div
+						class="col-md-7 heading-section ftco-animate text-center fadeInUp ftco-animated">
+						<span class="subheading">Testimony</span>
+						<h2 class="mb-4">Our satisfied customer says</h2>
+						<p>Far far away, behind the word mountains, far from the
+							countries Vokalia and Consonantia, there live the blind texts.
+							Separated they live in</p>
+					</div>
+				</div>
+				<div class="row ftco-animate fadeInUp ftco-animated">
+					<div class="col-md-12">
+						<div class="carousel-testimony owl-carousel owl-loaded owl-drag">
+
+
+
+
+
+							<div class="owl-stage-outer">
+								<div class="owl-stage"
+									style="transition: all 0s ease 0s; width: 2640px; transform: translate3d(-480px, 0px, 0px);">
+									<div class="owl-item cloned"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_3.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">UI Designer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item cloned"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Web Developer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item cloned active"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">System Analyst</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item active center"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Marketing Manager</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item active"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_2.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Interface Designer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_3.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">UI Designer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Web Developer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">System Analyst</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item cloned"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_1.jpg}+')'">
+
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Marketing Manager</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item cloned"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_2.jpg}+')'">
+
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">Interface Designer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="owl-item cloned"
+										style="width: 210px; margin-right: 30px;">
+										<div class="item">
+											<div class="testimony-wrap p-4 pb-5">
+												<div class="user-img mb-5"
+													th:style="'background-image: url('+@{/public/images/person_3.jpg}+')'">
+
+													<span
+														class="quote d-flex align-items-center justify-content-center">
+														<i class="icon-quote-left"></i>
+													</span>
+												</div>
+												<div class="text text-center">
+													<p class="mb-5 pl-4 line">Far far away, behind the word
+														mountains, far from the countries Vokalia and Consonantia,
+														there live the blind texts.</p>
+													<p class="name">Garreth Smith</p>
+													<span class="position">UI Designer</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="owl-nav disabled">
+								<button role="presentation" class="owl-prev">
+									<span class="ion-ios-arrow-back"></span>
+								</button>
+								<button role="presentation" class="owl-next">
+									<span class="ion-ios-arrow-forward"></span>
+								</button>
+							</div>
+							<div class="owl-dots">
+								<button class="owl-dot active">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> -->
+
+		<!-- *** FOOTER Y COPYRIGHT ***
+ _________________________________________________________ -->
+		<div th:replace="views/public/layout/layout :: footer"></div>
+
+		<!-- *** FOOTER Y COPYRIGHT END *** -->
+
+	</div>
+	<!-- /#all -->
+
+
+
+
+	<!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+
+
+	<div th:replace="views/public/layout/layout :: scripts"></div>
+
+</body>
+
+</html>

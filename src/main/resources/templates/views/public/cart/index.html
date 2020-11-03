@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+
+<div th:replace="views/public/layout/layout :: head"></div>
+
+</head>
+
+<body>
+
+	<!-- *** TOPBAR Y NAVBAR ***
+ _________________________________________________________ -->
+
+	<div th:replace="views/public/layout/layout :: header"></div>
+
+	<!-- *** TOPBAR Y NAVBAR END *** -->
+
+
+
+	<div id="all">
+		<!-- *** CONTENT ***
+ _________________________________________________________ -->
+
+		<div class="hero-wrap hero-bread"
+			th:style="'background-image: url('+@{/public/images/bg_1.jpg}+');'">
+			<div class="container">
+				<div
+					class="row no-gutters slider-text align-items-center justify-content-center">
+					<div
+						class="col-md-9 ftco-animate text-center fadeInUp ftco-animated">
+						<p class="breadcrumbs">
+							<span class="mr-2"><a href="index.html">inicio</a></span> <span>Carro</span>
+						</p>
+						<h1 class="mb-0 bread">Mi carrito</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="ftco-section ftco-cart">
+		 
+			<div class="container">
+			<form method="post" th:action="@{/cart/checkout}">
+				<div class="row">
+					<div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+						<div class="cart-list">
+							<table class="table" id="cart">
+								<thead class="thead-primary">
+									<tr class="text-center">
+										<th>&nbsp;</th>
+										<th>Producto</th>
+										<th>Nombre del Producto</th>
+										<th>Precio</th>
+										<th>Cantidad</th>
+										<th>Total</th>
+									</tr>
+								</thead>
+								<tbody>
+								<th:block th:each="item, i: ${session.cart}">
+									<tr class="text-center">
+<!-- 									remover -->
+										<td class="product-remove"><a th:href="@{'/cart/delete/' + ${i.index}}"><span
+												class="ion-ios-close"></span></a></td>
+<!-- 												imagen -->
+										<td class="image-prod"><a th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}" class="img"
+												th:style="'background-image: url('+@{'/public/images/' + ${item.producto.urlimagen}}+');'" th:alt="${item.producto.nombre}"></a></td>
+<!-- 												nombre del producto -->
+										<td class="product-name">
+											<a th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}"><span th:text="${item.producto.nombre}"></span></a>
+											<p><span th:text="${item.producto.descripcion}"></span></p>
+										</td>
+<!-- 										precio -->
+										<td class="price">S/. <span th:text="${item.producto.precio}"></span></td>
+<!-- 										cantidad -->
+										<td class="quantity">
+											<div class="price">
+												<span th:text="${item.quantity}"></span>
+											</div>
+										</td>
+<!-- 										total -->
+										<td class="total">S/. <span th:text="${item.producto.precio * item.quantity}"></span></td>
+									</tr>
+									
+									</th:block>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th colspan="5"><h5>TOTAL</h5></th>
+										<th id="total" colspan="3"></th>
+									</tr>
+								</tfoot>
+
+							</table>
+						</div>
+					</div>
+					</form>
+				</div>
+				<!-- <div class="row justify-content-end">
+					<div
+						class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+						<div class="cart-total mb-3">
+							<h3>Codigo promocional</h3>
+							<p>Ingrese su codigo de cupon si tiene uno</p>
+							<form action="#" class="info">
+								<div class="form-group">
+									<label for="">Codigo promocional</label> <input type="text"
+										class="form-control text-left px-3" placeholder="">
+								</div>
+							</form>
+						</div>
+						<p>
+							<a href="checkout.html" class="btn btn-primary py-3 px-4">Aplicar Cupon</a>
+						</p>
+					</div>
+					<div
+						class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+						<div class="cart-total mb-3">
+							<h3>Estimate shipping and tax</h3>
+							<p>Enter your destination to get a shipping estimate</p>
+							<form action="#" class="info">
+								<div class="form-group">
+									<label for="">Country</label> <input type="text"
+										class="form-control text-left px-3" placeholder="">
+								</div>
+								<div class="form-group">
+									<label for="country">State/Province</label> <input type="text"
+										class="form-control text-left px-3" placeholder="">
+								</div>
+								<div class="form-group">
+									<label for="country">Zip/Postal Code</label> <input type="text"
+										class="form-control text-left px-3" placeholder="">
+								</div>
+							</form>
+						</div>
+						<p>
+							<a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a>
+						</p>
+					</div>
+					<div
+						class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
+						<div class="cart-total mb-3">
+							<h3>Cart Totals</h3>
+							<p class="d-flex">
+								<span>Subtotal</span> <span>S/. 20.60</span>
+							</p>
+							<p class="d-flex">
+								<span>Delivery</span> <span>S/. 0.00</span>
+							</p>
+							<p class="d-flex">
+								<span>Descuento</span> <span>S/. 3.00</span>
+							</p>
+							<hr>
+							<p class="d-flex total-price">
+								<span>Total</span> <span>S/. 17.60</span>
+							</p>
+						</div>
+						<p>
+							<a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed
+								to Checkout</a>
+						</p>
+					</div>
+				</div> -->
+			</div>
+			</form>
+		</section>
+
+		<!-- *** FOOTER Y COPYRIGHT ***
+ _________________________________________________________ -->
+		<div th:replace="views/public/layout/layout :: footer"></div>
+
+		<!-- *** FOOTER Y COPYRIGHT END *** -->
+
+	</div>
+	<!-- /#all -->
+
+
+
+
+	<!-- *** SCRIPTS TO INCLUDE ***
+ _________________________________________________________ -->
+
+
+	<div th:replace="views/public/layout/layout :: scripts"></div>
+	<script type="text/javascript">
+		var sum = 0;
+		$("#cart tr").not(':first').not(':last').each(function() {
+				// extrae el subtotal de la tabla
+				var subtotal = $(this).find('td:eq(5)').text();
+				// extrae sólo la parte numérica
+				var num = Number(subtotal .replace(/[^0-9\.]+/g,""));
+				sum += num;	
+		});
+		document.getElementById("total").textContent='S/. ' + sum;
+</script>
+
+</body>
+
+</html>
