@@ -2,9 +2,12 @@ package pe.edu.udaff.entities;
 // Generated 10-jun-2020 16:33:41 by Hibernate Tools 5.2.12.Final
 
 import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -58,7 +61,6 @@ public class Producto implements java.io.Serializable {
 		this.caracteristicas = caracteristicas;
 		this.feature = feature;
 	}
-
 	@Id
 
 	@Column(name = "idproducto", unique = true, nullable = false)

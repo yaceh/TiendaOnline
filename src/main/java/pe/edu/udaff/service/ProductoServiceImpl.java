@@ -39,7 +39,14 @@ public class ProductoServiceImpl implements ProductoService{
 	@Override
 	public List<Producto> getAll() {
 		// TODO Auto-generated method stub
+		
 		return productoDao.findAll();
+	}
+
+	@Override
+	public Producto save(Producto p) {
+		// TODO Auto-generated method stub
+		return productoDao.save(p);
 	}
 
 }

@@ -15,4 +15,6 @@ public interface ProductoService {
 	public List<Producto> findLatest(PageRequest pageRequest);
 	
 	public List<Producto> getAll();
+	
+	public Producto save(Producto p);
 }

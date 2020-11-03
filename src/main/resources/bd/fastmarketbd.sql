@@ -66,7 +66,7 @@ INSERT INTO `partner` VALUES (1,'partner A'),(2,'partner B'),(3,'partner C');
 UNLOCK TABLES;
 
 create table producto(
-idproducto int(11) not null,
+idproducto int(11) not null auto_increment,
 nombre varchar(40) not null,
 precio decimal(18,2) not null,
 cantidad int(11) not null,
