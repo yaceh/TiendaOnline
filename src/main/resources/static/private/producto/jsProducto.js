@@ -11,7 +11,7 @@ function actionEditarProducto(id,element,e){
 		$('#marca').val(dataResponse.marca.idmarca);
 		
 		$('#modalProducto').attr("data-action","editar");
-		$('#modalProducto').attr("data-id",dataResponse.idproducto)
+		$('#modalProducto').attr("data-id",dataResponse.idproducto);
 		$('#modalProducto').modal("show");
 	});
 }
@@ -54,3 +54,18 @@ $('#btnAgregar').click(function (e){
 	$('#modalProducto').attr("data-id","null");
 	$('#modalProducto').modal("show");
 });
+
+function actionCambiarActivo(id,elem,e){
+	e.preventDefault();
+	let url="/admin/producto/cambiarActivo?id="+id;
+	let type="POST";
+	doAjax(url,type,null,function (dataResponse){
+		Swal.fire(
+				  'Correcto',
+				  'Se ha cambiado el estado Activo del producto',
+				  'success'
+				).then((result) => {
+					location.reload();
+				});
+	});
+}

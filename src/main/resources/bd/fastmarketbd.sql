@@ -133,3 +133,6 @@ INSERT INTO `fastmarketbd`.`producto` (`idproducto`, `nombre`, `precio`, `cantid
 INSERT INTO `fastmarketbd`.`producto` (`idproducto`, `nombre`, `precio`, `cantidad`, `descripcion`, `urlimagen`, `caracteristicas`, `idcategoria`, `idpartner`, `idmarca`, `feature`) VALUES ('47', 'Lentejas Rompe olla', '3.10', '50', 'Lenteja 450 g', 'lenteja.jpg', '1', '27', '1', '4', '1');
 INSERT INTO `fastmarketbd`.`producto` (`idproducto`, `nombre`, `precio`, `cantidad`, `descripcion`, `urlimagen`, `caracteristicas`, `idcategoria`, `idpartner`, `idmarca`, `feature`) VALUES ('48', 'Lenteja Costeño', '3.50', '50', 'Lenteja costeño 500 g', 'lentejacosteno.jpg', '1', '27', '1', '4', '1');
 INSERT INTO `fastmarketbd`.`producto` (`idproducto`, `nombre`, `precio`, `cantidad`, `descripcion`, `urlimagen`, `caracteristicas`, `idcategoria`, `idpartner`, `idmarca`, `feature`) VALUES ('49', 'Alverjita verde Costeño', '3.00 ', '50', 'Alverjita verde costeño de 500 g', 'alverjacosteno.jpg', '1', '27', '1', '4', '1');
+
+alter table producto add activo tinyint(1);
+Update producto set activo=1 where idproducto>0;

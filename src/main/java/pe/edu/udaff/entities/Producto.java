@@ -1,13 +1,12 @@
 package pe.edu.udaff.entities;
-// Generated 10-jun-2020 16:33:41 by Hibernate Tools 5.2.12.Final
+// Generated 04-nov-2020 10:46:38 by Hibernate Tools 5.2.12.Final
 
 import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "producto", catalog = "fastmarketbd")
 public class Producto implements java.io.Serializable {
 
-	private int idproducto;
+	private Integer idproducto;
 	private Categoria categoria;
 	private Marca marca;
 	private Partner partner;
@@ -31,13 +30,13 @@ public class Producto implements java.io.Serializable {
 	private String urlimagen;
 	private byte caracteristicas;
 	private Byte feature;
+	private Boolean activo;
 
 	public Producto() {
 	}
 
-	public Producto(int idproducto, Categoria categoria, Marca marca, Partner partner, String nombre, BigDecimal precio,
-			int cantidad, byte caracteristicas) {
-		this.idproducto = idproducto;
+	public Producto(Categoria categoria, Marca marca, Partner partner, String nombre, BigDecimal precio, int cantidad,
+			byte caracteristicas) {
 		this.categoria = categoria;
 		this.marca = marca;
 		this.partner = partner;
@@ -47,9 +46,8 @@ public class Producto implements java.io.Serializable {
 		this.caracteristicas = caracteristicas;
 	}
 
-	public Producto(int idproducto, Categoria categoria, Marca marca, Partner partner, String nombre, BigDecimal precio,
-			int cantidad, String descripcion, String urlimagen, byte caracteristicas, Byte feature) {
-		this.idproducto = idproducto;
+	public Producto(Categoria categoria, Marca marca, Partner partner, String nombre, BigDecimal precio, int cantidad,
+			String descripcion, String urlimagen, byte caracteristicas, Byte feature, Boolean activo) {
 		this.categoria = categoria;
 		this.marca = marca;
 		this.partner = partner;
@@ -60,15 +58,18 @@ public class Producto implements java.io.Serializable {
 		this.urlimagen = urlimagen;
 		this.caracteristicas = caracteristicas;
 		this.feature = feature;
+		this.activo = activo;
 	}
+
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idproducto", unique = true, nullable = false)
-	public int getIdproducto() {
+	public Integer getIdproducto() {
 		return this.idproducto;
 	}
 
-	public void setIdproducto(int idproducto) {
+	public void setIdproducto(Integer idproducto) {
 		this.idproducto = idproducto;
 	}
 
@@ -163,6 +164,15 @@ public class Producto implements java.io.Serializable {
 
 	public void setFeature(Byte feature) {
 		this.feature = feature;
+	}
+
+	@Column(name = "activo")
+	public Boolean getActivo() {
+		return this.activo;
+	}
+
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
 	}
 
 }

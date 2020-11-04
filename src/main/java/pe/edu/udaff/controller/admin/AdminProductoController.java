@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pe.edu.udaff.entities.Categoria;
@@ -82,6 +83,14 @@ public class AdminProductoController {
 	public boolean agregarProducto(@RequestBody Producto producto) {
 
 		productoService.save(producto);
+		return true;
+	}
+	@ResponseBody
+	@PostMapping("cambiarActivo")
+	public boolean cambiarActivo(@RequestParam(name="id") Integer id) {
+		Producto prodAnt=productoService.findByIdproducto(id);
+		prodAnt.setActivo(!prodAnt.getActivo());
+		productoService.save(prodAnt);
 		return true;
 	}
 }

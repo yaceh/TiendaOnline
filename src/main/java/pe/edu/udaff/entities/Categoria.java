@@ -1,14 +1,16 @@
-	package pe.edu.udaff.entities;
-// Generated 25-may-2020 13:21:34 by Hibernate Tools 5.2.12.Final
+package pe.edu.udaff.entities;
+// Generated 04-nov-2020 10:46:38 by Hibernate Tools 5.2.12.Final
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -87,7 +89,7 @@ public class Categoria implements java.io.Serializable {
 	}
 
 	@OneToMany
-	@JoinColumn(name= "parentid",referencedColumnName = "idcategoria")
+	@JoinColumn(name = "parentid", referencedColumnName = "idcategoria")
 	public List<Categoria> getCategorias() {
 		return categorias;
 	}
@@ -95,5 +97,4 @@ public class Categoria implements java.io.Serializable {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
-
 }

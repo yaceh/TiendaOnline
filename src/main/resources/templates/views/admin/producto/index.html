@@ -85,6 +85,7 @@
 														<th class="border-0">Descripción</th>
 														<th class="border-0">Categoria</th>
 														<th class="border-0">Marca</th>
+														<th class="border-0">Activo</th>
 														<th class="border-0">Opciones</th>
 													</tr>
 												</thead>
@@ -98,10 +99,16 @@
 															<td th:text="${p.descripcion}"></td>
 															<td th:text="${p.categoria.nombre}"></td>
 															<td th:text="${p.marca.nombre}"></td>
-															<td><button class="btn btn-info"
+															<td th:class="${p.activo? 'text-success':'text-danger'}" th:text="${p.activo? 'Activo':'Inactivo'}"></td>
+															<td><button type="button"  class="btn btn-info m-1"
 																	th:attr="onclick=${'actionEditarProducto('+p.idproducto+',this,event)'}">
 																	<i class="fas fa-edit"></i>
-																</button></td>
+																</button>
+																<button type="button" class="btn btn-warning m-1"
+																	th:attr="onclick=${'actionCambiarActivo('+p.idproducto+',this,event)'}">
+																	<i class="text-light fas fa-sync"></i>
+																</button>
+															</td>
 														</tr>
 													</th:block>
 												</tbody>
