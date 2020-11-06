@@ -136,3 +136,24 @@ INSERT INTO `fastmarketbd`.`producto` (`idproducto`, `nombre`, `precio`, `cantid
 
 alter table producto add activo tinyint(1);
 Update producto set activo=1 where idproducto>0;
+
+
+use fastmarketbd;
+
+create table perfil(
+idperfil int auto_increment primary key, 
+perfil varchar(20)
+);
+insert into perfil values(1,"ROLE_ADMIN"),(2,"ROLE_USER");
+create table usuario(
+idusuario int auto_increment primary key,
+usuario varchar(20),
+nombre varchar(20),
+password varchar(1000),
+idperfil int,
+constraint fk_usuario_perfil foreign key (idperfil) references perfil(idperfil)
+);
+insert into usuario value(1,"admin","El Eyner",'$2a$10$CsneHqNas89eL6CeX2C5IOyJgeyH7kxWrrCrsZ/8yGejRdzy2pbym',1);
+alter table usuario add activo tinyint(1);
+
+update usuario set activo=1 where idusuario=1;

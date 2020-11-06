@@ -52,7 +52,7 @@
 					<div class="row">
 						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 							<div class="page-header">
-								<h2 class="pageheader-title">Producto</h2>
+								<h2 class="pageheader-title">Usuario</h2>
 								<p class="pageheader-text"></p>
 
 							</div>
@@ -66,7 +66,7 @@
 						<div class="row">
 							<div class="col-12">
 								<button id="btnAgregar" class="btn btn-primary">Agregar
-									Producto</button>
+									Usuario</button>
 							</div>
 						</div>
 						<div class="row mt-3">
@@ -79,34 +79,25 @@
 												<thead class="bg-light">
 													<tr class="border-0">
 														<th class="border-0">#</th>
+														<th class="border-0">Usuario</th>
 														<th class="border-0">Nombre</th>
-														<th class="border-0">Precio</th>
-														<th class="border-0">Cantidad</th>
-														<th class="border-0">Descripción</th>
-														<th class="border-0">Categoria</th>
-														<th class="border-0">Marca</th>
+														<th class="border-0">Perfil</th>
 														<th class="border-0">Activo</th>
 														<th class="border-0">Opciones</th>
 													</tr>
 												</thead>
 												<tbody>
-													<th:block data-th-each="p : ${productos}">
+													<th:block data-th-each="o : ${usuarios}">
 														<tr>
-															<td th:text="${p.idproducto}"></td>
-															<td th:text="${p.nombre}"></td>
-															<td th:text="${p.precio}"></td>
-															<td th:text="${p.cantidad}"></td>
-															<td th:text="${p.descripcion}"></td>
-															<td th:text="${p.categoria.nombre}"></td>
-															<td th:text="${p.marca.nombre}"></td>
-															<td th:class="${p.activo? 'text-success':'text-danger'}"
-																th:text="${p.activo? 'Activo':'Inactivo'}"></td>
-															<td><button type="button" class="btn btn-info m-1"
-																	th:attr="onclick=${'actionEditarProducto('+p.idproducto+',this,event)'}">
-																	<i class="fas fa-edit"></i>
-																</button>
+															<td th:text="${o.idusuario}"></td>
+															<td th:text="${o.usuario}"></td>
+															<td th:text="${o.nombre}"></td>
+															<td th:text="${o.perfil.perfil}"></td>
+															<td th:class="${o.activo? 'text-success':'text-danger'}"
+																th:text="${o.activo? 'Activo':'Inactivo'}"></td>
+															<td>
 																<button type="button" class="btn btn-warning m-1"
-																	th:attr="onclick=${'actionCambiarActivo('+p.idproducto+',this,event)'}">
+																	th:attr="onclick=${'actionCambiarActivo('+o.idusuario+',this,event)'}">
 																	<i class="text-light fas fa-sync"></i>
 																</button></td>
 														</tr>
@@ -125,7 +116,7 @@
 
 		</div>
 	</div>
-	<div th:replace="views/admin/producto/productoModal"></div>
+	<div th:replace="views/admin/usuario/usuarioModal"></div>
 	<div th:replace="views/admin/layout/layout :: scripts"></div>
 	<script
 		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -149,7 +140,7 @@
 	<script
 		src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
 
-	<script th:src="@{/private/producto/jsProducto.js}"></script>
+	<script th:src="@{/private/usuario/jsUsuario.js}"></script>
 	<script th:src="@{/private/jsAjax.js}"></script>
 	<script th:src="@{/private/jsBotones.js}"></script>
 	<script th:src="@{/private/jsEnviarToken.js}"></script>

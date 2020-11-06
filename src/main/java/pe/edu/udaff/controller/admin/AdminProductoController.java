@@ -34,7 +34,7 @@ public class AdminProductoController {
 	private PartnerService partnerService;
 
 	@GetMapping()
-	public String categoria(Model model) {
+	public String producto(Model model) {
 		model.addAttribute("title", "Admin | Producto");
 		model.addAttribute("productos",productoService.getAll());
 		model.addAttribute("marcas",marcaService.findAll());

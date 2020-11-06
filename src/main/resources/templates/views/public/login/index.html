@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" th:href="@{/public/login/main.css}">
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="form-container sign-up-container">
+			<form action="#" id="registroForm">
+				<h1>Crear cuenta</h1>
+				<input type="text" placeholder="Nombre" id="nombreRegistro" /> <input
+					type="text" id="usuarioRegistro" placeholder="Usuario" /> <input
+					type="password" id="passwordRegistro" placeholder="Contraseña" autocomplete="off"/>
+				<button id="btnRegistro">Crear cuenta</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form th:action="@{/login}" method="post">
+				<h1>Iniciar Sesión</h1>
+				<input type="text" placeholder="Usuario" id="usuarioLogin" name="usuario"/> <input type="password" autocomplete="off" name="password"
+					placeholder="Contraseña" id="passwordLogin" /> 
+				<button id="btnLogin" type="submit">Ingresar</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Bienvenido !</h1>
+					<p>Para que sigas conectado con nosotros, por favor inicia
+						sesión</p>
+					<button class="ghost" id="signIn">Iniciar Sesión</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hola, amigo!</h1>
+					<p>Ingresa tus datos personales e inicia sesión con nosotros</p>
+					<button class="ghost" id="signUp">Registrarse</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/public/js/jquery.min.js}"></script>
+	<script th:src="@{/private/jsAjax.js}"></script>
+	<script th:src="@{/private/jsBotones.js}"></script>
+	<script th:src="@{/public/login/main.js}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+</html>

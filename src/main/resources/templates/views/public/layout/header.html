@@ -31,7 +31,7 @@
 	class="navbar sticky-top navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 	id="ftco-navbar">
 	<div class="container">
-		<a class="navbar-brand" th:href="@{/home}"  >Tienda Ayacucho</a>
+		<a class="navbar-brand" th:href="@{/home}">Tienda Ayacucho</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -50,12 +50,14 @@
 							<span th:text="${categoria1.nombre}"></span>
 					</a> <!-- 					condicion --> <th:block
 							th:if="${categoria1.categorias.size()}>0">
-							
+
 							<div class="dropdown-menu" aria-labelledby="dropdown04">
 								<div class="row">
-								<div class="text-light px-5 py-0 d-flex"><th:block th:each="categoria2 : ${categoria1.categorias}"></th:block></div>
-										
-									
+									<div class="text-light px-5 py-0 d-flex">
+										<th:block th:each="categoria2 : ${categoria1.categorias}"></th:block>
+									</div>
+
+
 									<th:block th:each="categoria2 : ${categoria1.categorias}">
 
 										<th:block th:if="${categoria2.categorias.size()}>0">
@@ -75,14 +77,39 @@
 									</th:block>
 								</div>
 							</div>
-				
+
 
 						</th:block></li>
 				</th:block>
-				<button><i class="fa user-o" aria-hidden="true">go</i>
-</button>
+				<th:block th:if="!${userLogged}">
+					<li class="nav-item active"><a href="/login" class="nav-link"
+						onclick="mostrarLogin()"><span class="icon-user"></span>Go</a></li>
+				</th:block>
+				<th:block th:if="${userLogged}">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id=""
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span th:text="${userLogged.nombre}"></span>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown04">
+							<div class="row">
+								<div class="text-light px-5 py-0 d-flex"></div>
+								<div class="col-sm-3">
+									<ul>
+										<li th:if="${isAdmin}"><a th:href="@{/admin}"
+											class="dropdown-item">Administrar<span></span>
+										</a></li>
+										<li><a th:href="@{/logout}" class="dropdown-item">Cerrar
+												Sesión <span></span>
+										</a></li>
 
-<!-- 					<li class="nav-item cta cta-colored"><a th:href="@{/cart}"
+									</ul>
+								</div>
+							</div>
+						</div></li>
+				</th:block>
+
+				<!-- 					<li class="nav-item cta cta-colored"><a th:href="@{/cart}"
 				class="nav-link"><span class="icon-shopping_cart"></span>[<span th:text="*{session.cart.size()}?: '(0)'"></span>]</a></li>
 				 -->
 		</div>
