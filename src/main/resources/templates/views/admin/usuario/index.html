@@ -96,9 +96,13 @@
 															<td th:class="${o.activo? 'text-success':'text-danger'}"
 																th:text="${o.activo? 'Activo':'Inactivo'}"></td>
 															<td>
-																<button type="button" class="btn btn-warning m-1"
+																<button type="button" class="btn btn-warning p-1"
 																	th:attr="onclick=${'actionCambiarActivo('+o.idusuario+',this,event)'}">
 																	<i class="text-light fas fa-sync"></i>
+																</button>
+																<button type="button" class="btn btn-danger p-1"
+																	th:attr="onclick=${'actionEliminar('+o.idusuario+',this,event)'}">
+																	<i class="text-light fas fa-trash"></i>
 																</button></td>
 														</tr>
 													</th:block>

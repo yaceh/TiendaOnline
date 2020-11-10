@@ -17,4 +17,8 @@ public interface ProductoService {
 	public List<Producto> getAll();
 	
 	public Producto save(Producto p);
+	
+	public void delete(Producto p);
+
+	public List<Producto> getProductosByQuery(String query);
 }

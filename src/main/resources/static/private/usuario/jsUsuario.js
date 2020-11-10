@@ -44,3 +44,18 @@ function actionCambiarActivo(id,elem,e){
 				});
 	});
 }
+
+function actionEliminar(id,elem,e){
+	e.preventDefault();
+	let url="/admin/usuario/eliminar?id="+id;
+	let type="POST";
+	doAjax(url,type,null,function (dataResponse){
+		Swal.fire(
+				  'Correcto',
+				  'Se ha eliminado correctamente el Usuario',
+				  'success'
+				).then((result) => {
+					location.reload();
+				});
+	});
+}

@@ -1,5 +1,7 @@
 package pe.edu.udaff.controller.admin;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import pe.edu.udaff.entities.Categoria;
 import pe.edu.udaff.entities.Marca;
@@ -19,6 +22,7 @@ import pe.edu.udaff.service.CategoriaService;
 import pe.edu.udaff.service.MarcaService;
 import pe.edu.udaff.service.PartnerService;
 import pe.edu.udaff.service.ProductoService;
+import pe.edu.udaff.service.UploadFileService;
 
 @Controller
 @RequestMapping("/admin/producto")
@@ -32,6 +36,9 @@ public class AdminProductoController {
 	private CategoriaService categoriaService;
 	@Autowired
 	private PartnerService partnerService;
+	
+	@Autowired
+	private UploadFileService uploadFileService;
 
 	@GetMapping()
 	public String producto(Model model) {
@@ -86,11 +93,37 @@ public class AdminProductoController {
 		return true;
 	}
 	@ResponseBody
+	@PostMapping("eliminar")
+	public boolean eliminarProducto(@RequestParam(name="id") Integer id) {
+		Producto prodAnt=productoService.findByIdproducto(id);
+		productoService.delete(prodAnt);
+		return true;
+	}
+	@ResponseBody
 	@PostMapping("cambiarActivo")
 	public boolean cambiarActivo(@RequestParam(name="id") Integer id) {
 		Producto prodAnt=productoService.findByIdproducto(id);
 		prodAnt.setActivo(!prodAnt.getActivo());
 		productoService.save(prodAnt);
 		return true;
+	}
+	@ResponseBody
+	@PostMapping("/addImagen")
+	public boolean addImagen(@RequestBody MultipartFile inputImagen,
+			@RequestParam(name = "idproducto") Integer idproducto) {
+		if (!inputImagen.isEmpty()) {
+			Producto p= productoService.findByIdproducto(idproducto);
+			try {
+				
+				p.setUrlimagen(uploadFileService.saveImagen(inputImagen, idproducto));
+				productoService.save(p);
+			} catch (IOException e) {
+				System.out.println("mensaje error:");
+				e.printStackTrace();
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

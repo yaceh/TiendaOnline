@@ -49,4 +49,15 @@ public class ProductoServiceImpl implements ProductoService{
 		return productoDao.save(p);
 	}
 
+	@Override
+	public List<Producto> getProductosByQuery(String query) {
+		// TODO Auto-generated method stub
+		return productoDao.getProductosByQuery(query);
+	}
+
+	@Override
+	public void delete(Producto p) {
+		productoDao.delete(p);
+	}
+
 }

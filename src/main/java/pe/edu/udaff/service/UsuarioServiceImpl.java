@@ -63,6 +63,12 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 		// TODO Auto-generated method stub
 		return usuarioDao.findByUsuario(usuario);
 	}
+
+	@Override
+	public void delete(Usuario u) {
+		// TODO Auto-generated method stub
+		usuarioDao.delete(u);
+	}
 	
 
 }

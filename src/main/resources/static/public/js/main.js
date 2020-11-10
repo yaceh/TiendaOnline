@@ -344,3 +344,11 @@ setInterval(function() { makeTimer(); }, 1000);
 
 })(jQuery);
 
+
+$('#btnSearch').click(function(e){
+	if($('#searchInput').val()!=""){
+		$(location).attr('href','/producto?q='+$('#searchInput').val());
+	}else{
+		return;
+	}
+});

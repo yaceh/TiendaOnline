@@ -21,5 +21,8 @@ public interface ProductoDao extends JpaRepository<Producto, Serializable>{
 
 	@Query("from Producto order by idproducto desc")
 	public List<Producto> findLatest(PageRequest pageRequest);
+
+	@Query("from Producto where nombre like %?1%")
+	public List<Producto> getProductosByQuery(String query);
 	
 }

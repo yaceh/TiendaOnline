@@ -71,5 +71,12 @@ public class AdminUsuarioController {
 		usuarioService.save(usAnt);
 		return true;
 	}
+	@ResponseBody
+	@PostMapping("eliminar")
+	public boolean eliminarUsuario(@RequestParam(name="id") Integer id) {
+		Usuario usAnt=usuarioService.findByIdUsuario(id);
+		usuarioService.delete(usAnt);
+		return true;
+	}
 
 }

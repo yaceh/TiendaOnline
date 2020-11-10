@@ -101,13 +101,21 @@
 															<td th:text="${p.marca.nombre}"></td>
 															<td th:class="${p.activo? 'text-success':'text-danger'}"
 																th:text="${p.activo? 'Activo':'Inactivo'}"></td>
-															<td><button type="button" class="btn btn-info m-1"
+															<td><button type="button" class="btn btn-info  p-1"
 																	th:attr="onclick=${'actionEditarProducto('+p.idproducto+',this,event)'}">
 																	<i class="fas fa-edit"></i>
 																</button>
-																<button type="button" class="btn btn-warning m-1"
+																<button type="button" class="btn btn-success p-1"
+																	th:attr="onclick=${'actionAddImagen('+p.idproducto+',this,event)'}">
+																	<i class="text-light fas fa-camera"></i>
+																</button>
+																<button type="button" class="btn btn-warning p-1"
 																	th:attr="onclick=${'actionCambiarActivo('+p.idproducto+',this,event)'}">
 																	<i class="text-light fas fa-sync"></i>
+																</button>
+																<button type="button" class="btn btn-danger p-1"
+																	th:attr="onclick=${'actionEliminar('+p.idproducto+',this,event)'}">
+																	<i class="text-light fas fa-trash"></i>
 																</button></td>
 														</tr>
 													</th:block>
@@ -126,6 +134,7 @@
 		</div>
 	</div>
 	<div th:replace="views/admin/producto/productoModal"></div>
+	<div th:replace="views/admin/producto/productoImagen"></div>
 	<div th:replace="views/admin/layout/layout :: scripts"></div>
 	<script
 		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import pe.edu.udaff.entities.Categoria;
 import pe.edu.udaff.service.CategoriaService;
@@ -22,6 +23,7 @@ public class ProductoController {
 	@Autowired
 	private ProductoService productoService;
 	
+	
 	@GetMapping("/categoria/{id}")
 	public String categoria(@PathVariable("id") Integer id, Model model) {
 		
@@ -33,6 +35,7 @@ public class ProductoController {
 		return "views/public/producto/categoria";
 	}
 	
+	
 	@GetMapping("/detalle/{id}")
 	public String detalle(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("title", "Detalle de Producto");
@@ -40,7 +43,11 @@ public class ProductoController {
 		model.addAttribute("latestproducto", productoService.findLatest(PageRequest.of(0, 4)));
 		return "views/public/producto/detalle";
 	}
-	
+	@GetMapping()
+	public String categoria(@RequestParam(name="q")String query, Model model) {
+		model.addAttribute("productos",productoService.getProductosByQuery(query));
+		return "views/public/producto/categoria";
+	}
 	
 
 }
