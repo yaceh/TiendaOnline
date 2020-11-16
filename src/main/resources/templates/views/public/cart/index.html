@@ -38,64 +38,76 @@
 			</div>
 		</div>
 		<section class="ftco-section ftco-cart">
-		 
-			<div class="container">
-			<form method="post" th:action="@{/cart/checkout}">
-				<div class="row">
-					<div class="col-md-12 ftco-animate fadeInUp ftco-animated">
-						<div class="cart-list">
-							<table class="table" id="cart">
-								<thead class="thead-primary">
-									<tr class="text-center">
-										<th>&nbsp;</th>
-										<th>Producto</th>
-										<th>Nombre del Producto</th>
-										<th>Precio</th>
-										<th>Cantidad</th>
-										<th>Total</th>
-									</tr>
-								</thead>
-								<tbody>
-								<th:block th:each="item, i: ${session.cart}">
-									<tr class="text-center">
-<!-- 									remover -->
-										<td class="product-remove"><a th:href="@{'/cart/delete/' + ${i.index}}"><span
-												class="ion-ios-close"></span></a></td>
-<!-- 												imagen -->
-										<td class="image-prod"><a th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}" class="img"
-												th:style="'background-image: url('+@{'/public/images/' + ${item.producto.urlimagen}}+');'" th:alt="${item.producto.nombre}"></a></td>
-<!-- 												nombre del producto -->
-										<td class="product-name">
-											<a th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}"><span th:text="${item.producto.nombre}"></span></a>
-											<p><span th:text="${item.producto.descripcion}"></span></p>
-										</td>
-<!-- 										precio -->
-										<td class="price">S/. <span th:text="${item.producto.precio}"></span></td>
-<!-- 										cantidad -->
-										<td class="quantity">
-											<div class="price">
-												<span th:text="${item.quantity}"></span>
-											</div>
-										</td>
-<!-- 										total -->
-										<td class="total">S/. <span th:text="${item.producto.precio * item.quantity}"></span></td>
-									</tr>
-									
-									</th:block>
-								</tbody>
-								<tfoot>
-									<tr>
-										<th colspan="5"><h5>TOTAL</h5></th>
-										<th id="total" colspan="3"></th>
-									</tr>
-								</tfoot>
 
-							</table>
+			<div class="container">
+				<form method="post" th:action="@{/cart/checkout}">
+					<div class="row">
+						<div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+							<div class="cart-list">
+								<table class="table" id="cart">
+									<thead class="thead-primary">
+										<tr class="text-center">
+											<th>&nbsp;</th>
+											<th>Producto</th>
+											<th>Nombre del Producto</th>
+											<th>Precio</th>
+											<th>Cantidad</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										<th:block th:each="item, i: ${session.cart}">
+											<tr class="text-center">
+												<!-- 									remover -->
+												<td class="product-remove"><a
+													th:href="@{'/cart/delete/' + ${i.index}}"><span
+														class="ion-ios-close"></span></a></td>
+												<!-- 												imagen -->
+												<td class="image-prod"><a
+													th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}"
+													class="img"
+													th:style="'background-image: url('+@{'/public/images/' + ${item.producto.urlimagen}}+');'"
+													th:alt="${item.producto.nombre}"></a></td>
+												<!-- 												nombre del producto -->
+												<td class="product-name"><a
+													th:href="@{'/producto/detalle/' + ${item.producto.idproducto}}"><span
+														th:text="${item.producto.nombre}"></span></a>
+													<p>
+														<span th:text="${item.producto.descripcion}"></span>
+													</p></td>
+												<!-- 										precio -->
+												<td class="price">S/. <span
+													th:text="${item.producto.precio}"></span></td>
+												<!-- 										cantidad -->
+												<td class="quantity">
+													<div class="price">
+														<span th:text="${item.quantity}"></span>
+													</div>
+												</td>
+												<!-- 										total -->
+												<td class="total">S/. <span
+													th:text="${item.producto.precio * item.quantity}"></span></td>
+											</tr>
+
+										</th:block>
+									</tbody>
+									<tfoot>
+										<tr>
+											<th colspan="5"><h5>TOTAL</h5></th>
+											<th id="total" colspan="3"></th>
+										</tr>
+									</tfoot>
+
+								</table>
+
+							</div>
+							<div class="row d-flex">
+								<a href="/pagar/1" class="btn btn-black py-3 px-5 ml-auto mt-5">Pagar</a>
+							</div>
 						</div>
-					</div>
-					</form>
-				</div>
-				<!-- <div class="row justify-content-end">
+				</form>
+			</div>
+			<!-- <div class="row justify-content-end">
 					<div
 						class="col-lg-4 mt-5 cart-wrap ftco-animate fadeInUp ftco-animated">
 						<div class="cart-total mb-3">
@@ -160,15 +172,15 @@
 						</p>
 					</div>
 				</div> -->
-			</div>
-			</form>
-		</section>
+	</div>
+	</form>
+	</section>
 
-		<!-- *** FOOTER Y COPYRIGHT ***
+	<!-- *** FOOTER Y COPYRIGHT ***
  _________________________________________________________ -->
-		<div th:replace="views/public/layout/layout :: footer"></div>
+	<div th:replace="views/public/layout/layout :: footer"></div>
 
-		<!-- *** FOOTER Y COPYRIGHT END *** -->
+	<!-- *** FOOTER Y COPYRIGHT END *** -->
 
 	</div>
 	<!-- /#all -->
@@ -184,14 +196,14 @@
 	<script type="text/javascript">
 		var sum = 0;
 		$("#cart tr").not(':first').not(':last').each(function() {
-				// extrae el subtotal de la tabla
-				var subtotal = $(this).find('td:eq(5)').text();
-				// extrae sólo la parte numérica
-				var num = Number(subtotal .replace(/[^0-9\.]+/g,""));
-				sum += num;	
+			// extrae el subtotal de la tabla
+			var subtotal = $(this).find('td:eq(5) span').text();
+			// extrae sólo la parte numérica
+			var num = Number(subtotal.replace('/[^0-9\.]+/g', ""));
+			sum += num;
 		});
-		document.getElementById("total").textContent='S/. ' + sum;
-</script>
+		document.getElementById("total").textContent = 'S/. ' + sum;
+	</script>
 
 </body>
 

@@ -36,6 +36,7 @@ public class CartController {
 			List<Item> cart = new ArrayList<Item>();
 			cart.add(new Item(productoService.findByIdproducto(id), 1));
 			session.setAttribute("cart", cart);
+			session.setAttribute("total",calcularTotal(cart));
 		} else {
 			List<Item> cart =(List<Item>) session.getAttribute("cart");
 			 int index= isExists(id,session);
@@ -49,6 +50,7 @@ public class CartController {
 				
 			}
 			 session.setAttribute("cart", cart);
+			 session.setAttribute("total",calcularTotal(cart));
 		}
 		return "views/public/cart/index";
 	}
@@ -70,6 +72,15 @@ public class CartController {
 		List<Item> cart =(List<Item>) session.getAttribute("cart");
 		cart.remove(index);
 		session.setAttribute("cart", cart);
+		session.setAttribute("total",calcularTotal(cart));
 		return "redirect:/cart";
+	}
+	
+	private double calcularTotal(List<Item> cart) {
+		double total=0;
+		for(Item i :cart) {
+			total+=i.getQuantity()*i.getProducto().getPrecio().doubleValue();
+		}
+		return total;
 	}
 }
