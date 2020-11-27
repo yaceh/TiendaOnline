@@ -112,7 +112,8 @@
 					</div>
 				</div>
 				<p>
-					<a th:href="@{'/cart/buy/' + ${producto.idproducto}}" class="btn btn-black py-3 px-5">Anadir al Carrito</a>
+				
+					<a href="javascript:;" th:attr="onclick=${'comprar('+producto.idproducto+')'}" class="btn btn-black py-3 px-5">Anadir al Carrito</a>
 				</p>
 			</div>
 		</div>
@@ -233,6 +234,7 @@
 
 
 	<div th:replace="views/public/layout/layout :: scripts"></div>
+	<script type="text/javascript" th:src="@{/public/js/comprar.js}"></script>
 
 </body>
 
