@@ -88,7 +88,8 @@ public class AdminProductoController {
 	@ResponseBody
 	@PostMapping("agregar")
 	public boolean agregarProducto(@RequestBody Producto producto) {
-
+		producto.setActivo(true);
+		producto.setFeature(Byte.valueOf("1"));
 		productoService.save(producto);
 		return true;
 	}
